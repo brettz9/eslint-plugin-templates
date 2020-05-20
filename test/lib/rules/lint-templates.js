@@ -63,7 +63,7 @@ const invalid = [
     var template = /* js */ \`var b = \${a /* 'a; */}\`;
     `,
     errors: [{
-      message: 'Parsing error: Unexpected token',
+      message: 'Template error: Parsing error: Unexpected token',
       type: 'TemplateElement'
     }],
     parserOptions: {
@@ -77,7 +77,7 @@ const invalid = [
     var template = js\`var b = \${a /* 'a'; */}\`;
     `,
     errors: [{
-      message: 'Parsing error: Unexpected token',
+      message: 'Template error: Parsing error: Unexpected token',
       type: 'TemplateElement'
     }],
     options: [
