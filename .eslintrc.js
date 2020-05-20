@@ -31,7 +31,18 @@ module.exports = {
     }
   }, {
     files: ['*.md'],
+    globals: {
+      // Express example
+      res: true,
+      // Tagged template
+      javascript: true
+    },
     rules: {
+      'no-unused-vars': ['error', {
+        varsIgnorePattern: 'value'
+      }],
+      semi: 0,
+      strict: 0
     }
   }],
   rules: {
