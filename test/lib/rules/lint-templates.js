@@ -98,14 +98,14 @@ let invalid = fullInvalid;
 /* eslint-disable node/no-process-env */
 if (process.env.npm_config_valid) {
   const [begin, end] = process.env.npm_config_valid.split(',');
-  valid = fullValid.slice(begin, end || undefined);
+  valid = fullValid.slice(begin, end || begin + 1);
   if (!process.env.npm_config_invalid) {
     invalid = [];
   }
 }
 if (process.env.npm_config_invalid) {
   const [begin, end] = process.env.npm_config_invalid.split(',');
-  invalid = fullInvalid.slice(begin, end || undefined);
+  invalid = fullInvalid.slice(begin, end || end + 1);
   if (!process.env.npm_config_valid) {
     valid = [];
   }
