@@ -25,7 +25,7 @@ const fullValid = [
   {
     code: `
     var a = 'a';
-    var template = /* js */ \`var b = \${a /* 'a'; */};\`;
+    var template = /* js */ \`var b = \${a /* 'a' */};\`;
     `,
     parserOptions: {
       ecmaVersion: 6
