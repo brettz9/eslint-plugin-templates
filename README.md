@@ -138,8 +138,8 @@ For other linting of JavaScript-within-JavaScript:
 
 ## Possible to-dos
 
-1. Fixer (with `fixable: 'code'`)
-1. Cache for performance as in `eslint-plugin-jsdoc` `check-examples`
 1. Templates marked as HTML but containing `<script>`
 1. Add a separate rule to insist that JS tagged templates or JS-comment
     templates have proper internal comments for use by `lint-templates`
+1. Fixer (with `fixable: 'code'`)
+1. Cache for performance as in `eslint-plugin-jsdoc` `check-examples`
