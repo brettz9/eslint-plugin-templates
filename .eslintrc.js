@@ -35,9 +35,11 @@ module.exports = {
       // Express example
       res: true,
       // Tagged template
-      javascript: true
+      javascript: true,
+      undefinedTemplateVar1: true
     },
     rules: {
+      'no-unused-expressions': 0,
       'no-unused-vars': ['error', {
         varsIgnorePattern: 'value'
       }],

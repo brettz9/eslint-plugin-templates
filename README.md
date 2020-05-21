@@ -122,6 +122,24 @@ Or, if you want the above as is, you may just use:
 }
 ```
 
+## Tips
+
+If you are saving your templates in a file with a special extension, you can
+use ESLint's `--ext` to add support for linting your template extension (in
+a comma-separated list along with "js").
+
+Note however that we don't have support for processing files other than
+JavaScript, so your template file would need to be valid JavaScript, i.e.,
+begin and end with backticks. You would probably not want to expose these
+files to your normal linter.
+
+Even if you have undefined variables such as below, that is not a problem;
+you could have a file that was only composed of this:
+
+```js
+`const a = ${undefinedTemplateVar1 /* 'templateVar' */};`
+```
+
 ## See also
 
 For other linting of JavaScript-within-JavaScript:
@@ -143,3 +161,5 @@ For other linting of JavaScript-within-JavaScript:
     templates have proper internal comments for use by `lint-templates`
 1. Fixer (with `fixable: 'code'`)
 1. Cache for performance as in `eslint-plugin-jsdoc` `check-examples`
+1. Add `processor` for allowing string-based template files (without
+    need for wrapping the template in backticks).
