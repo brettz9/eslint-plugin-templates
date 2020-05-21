@@ -2,7 +2,7 @@
 
 Checks commented ES6 templates against your regular linting rules.
 
-***This project is not yet funtional.***
+***This project is not fully functional or well tested.***
 
 ## Motivation
 
