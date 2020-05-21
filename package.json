@@ -10,7 +10,9 @@
   "author": "Brett Zamir",
   "main": "lib/index.js",
   "scripts": {
-    "test": "nyc mocha --recursive --timeout 10000"
+    "test-index": "mocha --timeout 10000 test/lib/rules/lint-templates.js",
+    "mocha": "mocha --recursive --timeout 10000 test",
+    "test": "nyc npm run mocha"
   },
   "repository": "https://github.com/brettz9/eslint-plugin-templates",
   "bugs": "https://github.com/brettz9/eslint-plugin-templates/issues",

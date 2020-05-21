@@ -12,7 +12,7 @@ const rule = require('../../../lib').rules['lint-templates'];
 
 // Tests
 
-const valid = [
+const fullValid = [
   {
     code: `
     var a = 'a';
@@ -56,7 +56,7 @@ const valid = [
   }
 ];
 
-const invalid = [
+const fullInvalid = [
   {
     code: `
     var a = 'a';
@@ -92,6 +92,25 @@ const invalid = [
 ];
 
 // Todo: Need tests for violating specific rules of different severity
+
+let valid = fullValid;
+let invalid = fullInvalid;
+/* eslint-disable node/no-process-env */
+if (process.env.npm_config_valid) {
+  const [begin, end] = process.env.npm_config_valid.split(',');
+  valid = fullValid.slice(begin, end || undefined);
+  if (!process.env.npm_config_invalid) {
+    invalid = [];
+  }
+}
+if (process.env.npm_config_invalid) {
+  const [begin, end] = process.env.npm_config_invalid.split(',');
+  invalid = fullInvalid.slice(begin, end || undefined);
+  if (!process.env.npm_config_valid) {
+    valid = [];
+  }
+}
+/* eslint-enable node/no-process-env */
 
 const ruleTester = new RuleTester();
 ruleTester.run('lint-templates', rule, {
