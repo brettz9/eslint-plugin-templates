@@ -7,8 +7,11 @@ Checks commented ES6 templates against your regular linting rules.
 ## Motivation
 
 The main use case is for checking linting for SSR (Server-Side Rendering),
-i.e., templates that build JavaScript dynamically--without needing to
-add a programmatic linting routine to your UI tests.
+i.e., templates that build JavaScript dynamically--while themselves being expressed in the form of
+[ES6 templates](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals)
+(such as for later evaluation by the likes of
+[`es6-template-strings`](https://github.com/medikoo/es6-template-strings))--without
+needing to add a programmatic linting routine to your UI tests.
 
 By requiring the populating of sample strings, it may also make the code
 more readable.
