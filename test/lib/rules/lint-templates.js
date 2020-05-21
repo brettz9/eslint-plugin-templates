@@ -25,6 +25,15 @@ const fullValid = [
   {
     code: `
     var a = 'a';
+    var template = /* js */ \`var b = \${a /* 'a'; */};\`;
+    `,
+    parserOptions: {
+      ecmaVersion: 6
+    }
+  },
+  {
+    code: `
+    var a = 'a';
     var js = function (strings, ...args) {
       return strings.join('') + args.join('');
     };
@@ -98,14 +107,24 @@ let invalid = fullInvalid;
 /* eslint-disable node/no-process-env */
 if (process.env.npm_config_valid) {
   const [begin, end] = process.env.npm_config_valid.split(',');
-  valid = fullValid.slice(begin, end || begin + 1);
+  valid = fullValid.slice(
+    Number.parseInt(begin),
+    !Number.isNaN(Number.parseInt(end))
+      ? end
+      : Number.parseInt(begin) + 1
+  );
   if (!process.env.npm_config_invalid) {
     invalid = [];
   }
 }
 if (process.env.npm_config_invalid) {
   const [begin, end] = process.env.npm_config_invalid.split(',');
-  invalid = fullInvalid.slice(begin, end || end + 1);
+  invalid = fullInvalid.slice(
+    Number.parseInt(begin),
+    !Number.isNaN(Number.parseInt(end))
+      ? end
+      : Number.parseInt(begin) + 1
+  );
   if (!process.env.npm_config_valid) {
     valid = [];
   }
